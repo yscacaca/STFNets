@@ -1,4 +1,6 @@
 # STFNets
+Tensorflow 1.4 implementation for the paper:
+
  STFNets: Learning Sensing Signals from the Time-Frequency Perspective with Short-Time Fourier Neural Networks
 
  
