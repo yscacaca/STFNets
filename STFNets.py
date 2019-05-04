@@ -10,8 +10,6 @@ import plot
 from tfrecord_stft_util import input_pipeline_har
 
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
-if len(sys.argv) > 1:
-	os.environ["CUDA_VISIBLE_DEVICES"]=sys.argv[1]
 
 layers = tf.contrib.layers 
 
@@ -32,8 +30,8 @@ KEEP_PROB = 0.8
 
 
 select = 'wifi' # {'hhar', 'wifi'}
-if len(sys.argv) > 2:
-	select = sys.argv[2]
+if len(sys.argv) > 1:
+	select = sys.argv[1]
 if select != 'wifi' and select != 'hhar':
 	print 'select wifi or hhar'
 	sys.exit("select wifi or hhar")
