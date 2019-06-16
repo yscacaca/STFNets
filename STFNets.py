@@ -121,9 +121,9 @@ def complex_glorot_uniform(c_in, c_out_total, fft_list, fft_n, use_bias=True, na
 			kernel_complex_org = tf.transpose(kernel_complex_org, [0, 1, 3, 2])
 			kernel_complex_org = kernel_complex_org[:,:,:int(fft_n)/2+1,:]
 		elif FILTER_INIT == 'complex':
-			kernel_r = tf.get_variable('kernel_real', shape = [1, 1, fft_n/2+1, c_out],
+			kernel_r = tf.get_variable('kernel_real', shape = [1, 1, fft_n/2+1, c_in*c_out],
 								initializer=tf.contrib.layers.xavier_initializer())
-			kernel_i = tf.get_variable('kernel_imag', shape = [1, 1, fft_n/2+1, c_out],
+			kernel_i = tf.get_variable('kernel_imag', shape = [1, 1, fft_n/2+1, c_in*c_out],
 								initializer=tf.contrib.layers.xavier_initializer())
 			kernel_complex_org = tf.complex(kernel_r, kernel_i)
 
